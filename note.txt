@@ -1,0 +1,6 @@
+Usa react Icons
+para el despalzamiento react scroll
+react simple typewriten para agragar efecto maquina de escribir
+react slick y slick carusel para crear carusel
+Usa vite como herramineta de compilacion
+usa typescript

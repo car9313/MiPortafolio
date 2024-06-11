@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --texto1: #71829b;
+    --texto2: #0b1120;
+    --fondo1: #ffffff;
+    --fondo2: #f3f5fa;
+    /*  --primaryColor: hsl(243, 75%, 59%); */
+    --primaryColor: #00bfff;
+    --primaryColorAccent: #90c0fa;
+    --bgButton: hsl(233, 11%, 84%);
+    /*  --socialContent: hsl(240, 2%, 84%); */
+    --solColor: #fde047;
+    --transition-1: 0.35s ease-in-out;
+    /*     --shadow-1: 10px 10px 40px var(--card-shadow); */
+    --scrollHeader: rgba(255, 255, 255, 0.7);
+    --shadowColor: #cfdff9;
+    /* --bgToggle: rgb(193, 194, 197); */
+    --gradientText-3: linear-gradientText(
+      to bottom,
+      rgba(240, 240, 240, 0.99),
+      rgba(240, 240, 240, 0.9),
+      rgba(240, 240, 240, 0.8)
+    );
+    --gradientText-4: linear-gradientText(
+      to right,
+      var(--color-primary) 0%,
+      var(--primaryColorAccent) 100%
+    );
+    --shadow1: 0 5px 5px rgba(0, 0, 0, 0.3);
+    --shadowToggleTheme1: inset 9px -6px white;
+    --shadowToggleTheme2: inset 20px -20px var(--solColor);
+  }
+
+  .dark {
+    --texto1: #94a9c9;
+    --texto2: #f4fafd;
+    --fondo1: #0b1120;
+    --fondo2: #0e182f;
+    --bgButton: hsl(215 27.9% 16.9%);
+    --scrollHeader: rgba(11, 17, 32, 0.7);
+    --shadowColor: #0f172a;
+    /*--bgToggle: rgb(50, 51, 52); */
+    --gradientText-3: linear-gradientText(
+      to bottom,
+      rgba(8, 13, 24, 0.99),
+      rgba(8, 13, 24, 0.9),
+      rgba(8, 13, 24, 0.8)
+    );
+  }
+}
+
+body {
+  @apply bg-bgPrimary font-serif text-text;
+}
+
+@layer components {
+  .bannerIcon {
+    @apply inline-flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-bgPrimary text-xl text-primaryColor shadow-sm shadow-text transition-all duration-300 hover:scale-125 hover:bg-opacity-40;
+  }
+
+  .btn {
+    @apply cursor-pointer rounded px-6 py-4 text-white;
+  }
+
+  .btn__primary {
+    @apply bg-primaryColor transition-all duration-500 hover:-translate-y-2 hover:shadow-shadowOne;
+  }
+
+  .btn__navegation {
+    @apply btn block text-sm shadow-md outline-0 transition-all duration-300 hover:bg-primaryColor hover:text-textAccent md:text-base;
+  }
+
+  .gradientText {
+    @apply bg-gradient-to-r from-primaryColor to-secondaryColor bg-clip-text text-transparent;
+  }
+
+  .gradient {
+    @apply bg-gradient-to-r from-primaryColor to-primaryColorAccent;
+  }
+
+  .contactInput {
+    @apply h-12 w-full rounded-lg border-b-[1px] border-b-gray-600 bg-[var(--input)] px-4 text-text outline-none duration-300 focus-visible:border-b-transparent focus-visible:outline-primaryColor active:outline-none;
+  }
+
+  .contactTextArea {
+    @apply w-full resize-none rounded-lg border-b-[1px] border-b-gray-600 bg-[var(--input)] px-4 py-2 text-text outline-none duration-300 focus-visible:border-b-transparent focus-visible:outline-primaryColor active:outline-none;
+  }
+}
+
+.seccion {
+  @apply h-full w-full p-5 md:px-20 md:py-10;
+}
+
+.selection {
+  @apply cursor-pointer transition-colors duration-300 hover:text-primaryColor;
+}
+
+.activeLink {
+  @apply text-primaryColor;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.listSocial {
+  @apply flex justify-center gap-4 py-4;
+}
+
+.resumeLi {
+  @apply flex h-12 cursor-pointer items-center justify-center rounded-full border-none text-xl shadow-sm shadow-text transition-colors;
+}
+
+.cardSkills {
+  @apply flex h-auto w-auto cursor-pointer flex-col items-center justify-center gap-1 rounded-lg bg-bgSecundary py-4 font-bold shadow-sm shadow-text duration-500 hover:scale-110;
+}
+
+.cardProyects {
+  @apply flex h-auto w-full flex-col rounded-lg p-4 shadow-sm shadow-text xl:p-6;
+}
+
+.theme-btn {
+  @apply block w-12 rounded-[100px] bg-buttonColor p-1 shadow-sm shadow-text outline-0 transition-all duration-300;
+}
+
+.theme-btn .icon {
+  @apply relative block h-5 w-5 rounded-[100px] bg-yellow-300 shadow-shadowToggleOne transition-all duration-300 dark:bg-white;
+}
+
+.theme-btn.active .icon {
+  @apply left-5 shadow-shadowToggleTwo;
+}
+
+.header.active {
+  @apply bg-scrollHeader shadow-shadowOne shadow-shadowColor backdrop-blur-2xl transition-colors;
+}
+
+.circleResumen {
+  @apply before:absolute before:left-[-9px] before:top-0 before:h-4 before:w-4 before:rounded-[50px] before:border-2 before:border-solid before:border-[#1f5297] before:bg-white;
+}
+.quote__icon {
+  @apply absolute text-3xl text-primaryColor;
+}
+
+.control {
+  @apply my-5 block w-full overflow-hidden rounded border border-text bg-bgPrimary p-2 text-base text-text outline-0 transition-all duration-300 focus:border-primaryColor;
+}
+
+.animated-wrapper {
+  animation-name: move-wrapper;
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: backwards;
+  position: absolute;
+}
+
+/* 
+Buscar Timpo de letra  y ancho
+Revisar clase prueba 
+Crear los iconos de sociales
+Como crear variables light y dark en tailwind
+Buscar como poner display none en tailwind
+Buscar after y before en tailwind
+*/
